@@ -3,7 +3,13 @@ needsPackage "RationalPoints2"
 needsPackage "Matroids"
 
 
--- Remember to change n = number of vertices and ge = genus!!
+--Below is code to compute canonical divisors of graph curves
+
+
+
+
+--First, we have all the data associated to graph curves of genus 4, 5, 6, and 7. 
+--To study a particular curve of genus, uncomment the lines defiening the genus and n (ge and n)
 
 --ge = 4;
 --n = 6;
@@ -120,7 +126,7 @@ Assoc = digraph({{0,1},{1,2},{2,3},{3,4},{4,5},{5,6},{6,7},{7,0},{8,9},{9,10},{1
                  {0,8},{1,12},{2,9},{3,12},{4,10},{5,13},{6,11},{7,13}}, EntryMode => "edges");
 
 
-
+--G is the graph curve you want to study, this variable is defined here. 
 G = Wiki1216;
 
 
@@ -174,7 +180,7 @@ for i from 0 to (ge - 1) do
 H = matrix{H} * columnVars;
 print(H_(0,0));
 
-
+--We constructed a random hyperplane H
 
 XG = {};
 pts = [];
@@ -205,7 +211,7 @@ XG = submatrix'(XG, {ge - 1}, );
 M = matroid(XG);
 print(#bases(M), binomial(2*ge-2, ge-1) - #bases(M), M == dual(M), areIsomorphic(M, dual(M)));
 --print(set(bases(uniformMatroid(ge-1, 2*ge-2))) - bases(M));
-
+--If the above are false, then the hyperplane H is not generic enough to recover the matrix M
 
 Circ = circuits(M);
 for i from 1 to ge do

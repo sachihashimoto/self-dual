@@ -1,8 +1,8 @@
-
+f = "genus6curves_dec1" << "";
 -- Input a 5 x 10 matrix that represents a self-dual configuration
 for m from 1 to 279 do(
 try(
-    f = "genus6curves_nov15" << "";
+
     data = lines get "rationalspecm2"; 
     line = data#m;
     s = separate(":", line);
@@ -54,7 +54,7 @@ try(
 
     -- Step 8: Compute the quadric and verify the ideal of 4x4-pfaffians
     q =  first first entries mingens ideal ((gens IX) % N);
-    N == pfaffians(4,Sigma);
+    assert (N == pfaffians(4,Sigma));
 
     -- Step 9: Output the matrix+quadric representation of the ideal IX
     --Sigma;
@@ -70,11 +70,18 @@ try(
     curve = (pfaffians(4,Sigmatilde))+ ideal(qtilde); toString mingens curve;
 
     -- Verification: Check that the output is correct
-    curve+ideal(x5) == IX+ideal(x5), dim curve, degree curve, betti res curve;
-    sing = minors(codim(curve),jacobian(curve)) + curve; dim sing;
+    assert (curve+ideal(x5) == IX+ideal(x5));
+    assert (dim curve == 2);
+    assert (degree curve == 10);
+    assert (betti res curve == correctbetti);
+    sing = minors(codim(curve),jacobian(curve)) + curve; 
+    assert (radical sing == ideal (x0,x1,x2,x3,x4,x5));
+    f << label;
+    f << ":";
+    f << toString Sigmatilde;
+    f << ":";
+    f << toString qtilde << endl;
 
-    f << label << ":" << toString curve << ":" << toString q << endl;
 )
 else print "something is wrong";
 )
-f << close;
