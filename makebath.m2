@@ -1,6 +1,6 @@
 f = "genus6curves_dec1" << "";
 -- Input a 5 x 10 matrix that represents a self-dual configuration
-for m from 1 to 279 do(
+for m from 0 to 280 do(
 try(
 
     data = lines get "rationalspecm2"; 
