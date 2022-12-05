@@ -254,23 +254,21 @@ if assigned seq then
     inputs := Split(Read("rk5allrealizations_nov7"), "\n");
     input := Split(inputs[seq], ":");
     label := eval input[1];
-    if label in [983, 1021, 1036, 1037] then
-        print label;
-        //label, bases, gb, d
-        output := doline(input);
-        output := [* label *] cat output;
-        selfdualgbstr := Sprint(output[5]); //dumb
-         R<[x]> := PolynomialRing(Rationals(),25);
+    print label;
+    //label, bases, gb, d
+    output := doline(input);
+    output := [* label *] cat output;
+    selfdualgbstr := Sprint(output[5]); //dumb
+     R<[x]> := PolynomialRing(Rationals(),25);
 
-        selfdualgb := (eval selfdualgbstr);
-        bases := output[2];
-        newoutput := SpecializeMatrix(selfdualgb, bases);
-        if newoutput[1] eq [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]  then
-            print 0;
-            exit;
-        end if;
-        newoutput := [* label *] cat newoutput;
-            print strip(Join([Sprint(elt) : elt in newoutput], ":"));
+    selfdualgb := (eval selfdualgbstr);
+    bases := output[2];
+    newoutput := SpecializeMatrix(selfdualgb, bases);
+    if newoutput[1] eq [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]  then
+        print 0;
         exit;
     end if;
+    newoutput := [* label *] cat newoutput;
+        print strip(Join([Sprint(elt) : elt in newoutput], ":"));
+    exit;
 end if;
