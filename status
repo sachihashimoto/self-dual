@@ -13,11 +13,11 @@ No self-dual realization space known:
 
 No SPECIALIZATION KNOWN:
 
-[279, 983, 1001, 1021, 1036, 1037]
+[983, 1001, 1021, 1036, 1037]
 
 dim of realization spaces
 
-[(279, 6), (983, 4), (1001,4)*
+[(983, 4), (1001,4)*
 (1021, 6),  
 (1036, 12), 
 (1039, 12), 
@@ -25,9 +25,6 @@ dim of realization spaces
 ]
 
 5 = 1+ 4
-
-No genus 6 curve known?
-
 
 No genus 6 curve known for matroid with rational self-dual point config known:
 wrong betti table matroid: 
