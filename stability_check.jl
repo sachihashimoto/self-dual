@@ -1,25 +1,4 @@
-function powerset(x::Vector{T}) where T
-    result = Vector{T}[[]]
-    for elem in x, j in eachindex(result)
-        push!(result, [result[j] ; elem])
-    end
-    result
-end
-
-function is_stable(M::Matroid)
-    k = length(M)
-    boo = true
-    pset = powerset([ i for i in 1:k])
-    subsets = [pset[i] for i in 2:length(pset)-1]
-    for v in subsets
-            if rank(M,v) > length(v)//2
-            else
-                boo = false 
-                return boo
-            end
-    end
-    return boo
-end
+include("get_selfdual_matroids.jl")
 
 outputfile = "list_stability_rank5"
 inputfile = "rk5matroids"
