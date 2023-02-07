@@ -6,8 +6,10 @@ They are polymake objects, i.e. the files can be loaded into polymake and invest
 For this open polymake and type
 $C0 = load("your/path/to/cone0");
 
-There will be information/reference to the original Data on Trop(Gr(3,6)) and the methods/code for reproduction available shortly.
-
+In order to reproduce these data run the code in selfdual_tropGr36.pl within polymake.
+This file calls the documents in DataTropGr36, which contains the data on cones and rays of the tropical Grassmannian Trop(Gr(3,6)) modulo the group action and scripts to recover the data. 
+The Data of the tropical Grassmannian Trop(Gr(3,6)) was originally computed by Speyer and Sturmfels for "The tropical Grassmannian" and  analysed by Herrmann, Jensen, Joswig and Sturmfels for the paper "How to draw tropical planes". It is also available at the internet page https://www.uni-math.gwdg.de/jensen/Research/G3_7/grassmann3_6.html
+The encoding of the data that is used here, as well as the scripts, were provided by Benjamin Schröter in the style used for the Data of the paper "Parallel Computation of tropical varieties, their positive part, and tropical Grassmannians". 
 
 The file tropicalGr26 contains the Singular code including output to compute the tropical Variety of Gr(2,6).
 
