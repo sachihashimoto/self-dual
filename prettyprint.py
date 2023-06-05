@@ -2,6 +2,7 @@
 def prettyprint(line):
 	data = line.split(":")
 	nonbasesnum = len(eval(data[1]))
+	print("Matroid label: {}".format(data[0]))
 	print("Number of bases: {}".format(nonbasesnum))
 
 	if eval(data[3]) < 0:
