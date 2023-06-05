@@ -35,7 +35,7 @@ with open(file, 'r') as f:
 	while True:
 		line = input("Enter line number: ")
 		linenum = eval(line)
-		line = content[linenum]
+		line = content[linenum-1]
 		prettyprint(line)
 		seebases = input("Do you want to see the bases? yes/no ")
 		if seebases == "yes":
